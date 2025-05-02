@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Header.css" />
+    <title>Header</title>
+  </head>
+  <body>
+    <header>
+      <nav class="headerNav">
+        <img src="../icon/logo.svg" alt="logo" />
+        <div class="nav-links">
+          <a href="#">Главное</a>
+          <a href="#">О нас</a>
+          <a href="#">Услуги</a>
+          <a href="#">Контакты</a>
+          <div id="message">Номер скопирован!</div>
+          <a href="#" id="phoneLink" onclick="copyPhoneNumber()"
+            >+996 507 784 181</a
+          >
+          <script>
+            function copyPhoneNumber() {
+              var phoneNumber = "+996 507 784 181";
+              var tempInput = document.createElement("input");
+              tempInput.value = phoneNumber;
+              document.body.appendChild(tempInput);
+              tempInput.select();
+              tempInput.setSelectionRange(0, 99999);
+              document.execCommand("copy");
+              document.body.removeChild(tempInput);
+              var message = document.getElementById("message");
+              message.style.display = "block";
+              setTimeout(function () {
+                message.style.display = "none";
+              }, 2000);
+            }
+          </script>
+        </div>
+      </nav>
+    </header>
+  </body>
+</html>
